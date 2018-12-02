@@ -314,6 +314,7 @@ def get_count(followers, following, total_followed, whitelisted_users, blacklist
 # function to handle errors
 def error_handling(e):
     error = type(e)
+    print(e)
     if error == tweepy.RateLimitError:
         print("You've hit a limit! Sleeping for 30 minutes.")
         sleep(60 * 30)
