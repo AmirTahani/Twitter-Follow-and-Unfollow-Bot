@@ -39,7 +39,7 @@ This is a bot that allows you to do a few things:
     '''
           )
 
-    userChoice = input('Enter the number of the action that you want to take: ')
+    userChoice = raw_input('Enter the number of the action that you want to take: ')
 
     # Dictionary of user choices
     choices = {
@@ -115,7 +115,7 @@ def follow_back(followers, following, total_followed, whitelisted_users, blackli
 
 # function to follow the followers of another user.
 def follow_all(followers, following, total_followed, whitelisted_users, blacklisted_users):
-    their_name = input('Input their name. Do not use an @ sign. For example, for @POTUS, input just POTUS: ')
+    their_name = raw_input('Input their name. Do not use an @ sign. For example, for @POTUS, input just POTUS: ')
     their_followers = api.followers_ids(their_name)
 
     # Makes a list of nonmutual followings.
@@ -171,7 +171,7 @@ def follow_rters(followers, following, total_followed, whitelisted_users, blackl
     print("Per Twitter's API, this method only returns a max of 100 users per tweet. \n")
 
     # gets the tweet ID using regex
-    tweet_url = input('Please input the full URL of the tweet: ')
+    tweet_url = raw_input('Please input the full URL of the tweet: ')
     try:
         tweetID = search('/status/(\d+)', tweet_url).group(1)
     except tweepy.TweepError as e:
@@ -325,7 +325,7 @@ def error_handling(e):
 # function to continue
 def Continue():
     # asks the user if they want to keep calculating, converts to lower case
-    keep_going = input('Do you want to keep going? Enter yes or no. \n'
+    keep_going = raw_input('Do you want to keep going? Enter yes or no. \n'
                        '').lower()
     # evaluates user's response.
     if keep_going == 'yes':
