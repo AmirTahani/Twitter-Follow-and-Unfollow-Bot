@@ -107,8 +107,9 @@ def follow_back(followers, following, total_followed, whitelisted_users, blackli
             total_followed += 1
             if total_followed % 10 == 0:
                 print(str(total_followed) + ' users followed so far.')
-            print('Followed user. Sleeping', random.randint(10, 15), 'seconds')
-            sleep(random.randint(10, 15))
+            number = random.randint(10, 15)
+            print('Followed user. Sleeping', number, 'seconds')
+            sleep(number)
         except (tweepy.RateLimitError, tweepy.TweepError) as e:
             error_handling(e)
     print(total_followed)
@@ -132,8 +133,9 @@ def follow_all(followers, following, total_followed, whitelisted_users, blacklis
             total_followed += 1
             if total_followed % 10 == 0:
                 print(str(total_followed) + ' users followed so far.')
-            print('Followed user. Sleeping 10 seconds.')
-            sleep(random.randint(10, 15))
+            number = random.randint(10, 15)
+            print('Followed user. Sleeping', number, 'seconds.')
+            sleep(number)
         except (tweepy.RateLimitError, tweepy.TweepError) as e:
             error_handling(e)
     print(total_followed)
@@ -159,10 +161,9 @@ def follow_keyword(followers, following, total_followed, whitelisted_users, blac
                 total_followed += 1
                 if total_followed % 10 == 0:
                     print(str(total_followed) + ' users followed so far.')
-                print('Followed user. Sleeping')
-                print(random.randint(10, 15))
-                print('seconds')
-                sleep(random.randint(10, 15))
+                number = random.randint(10, 15)
+                print('Followed user. Sleeping', number, 'seconds')
+                sleep(number)
             except (tweepy.RateLimitError, tweepy.TweepError) as e:
                 error_handling(e)
     print(total_followed)
@@ -195,10 +196,9 @@ def follow_rters(followers, following, total_followed, whitelisted_users, blackl
             if total_followed % 10 == 0:
                 print(str(total_followed) + ' users followed so far.')
             # sleeps so it doesn't follow too quickly.
-            print('Followed user. Sleeping')
-            print(random.randint(10, 15))
-            print('seconds')
-            sleep(random.randint(10, 15))
+            number = random.randint(10, 15)
+            print('Followed user. Sleeping', number, 'seconds')
+            sleep(number)
         except (tweepy.RateLimitError, tweepy.TweepError) as e:
             error_handling(e)
     print(total_followed)
@@ -216,10 +216,9 @@ def unfollow_back(followers, following, total_followed, whitelisted_users, black
             total_followed += 1
             if total_followed % 10 == 0:
                 print(str(total_followed) + ' unfollowed so far.')
-            print('Unfollowed user. Sleeping')
-            print(random.randint(15, 20))
-            print('seconds')
-            sleep(random.randint(15, 20))
+            number = random.randint(15, 20)
+            print('Unfollowed user. Sleeping', number, 'seconds')
+            sleep(number)
         except (tweepy.RateLimitError, tweepy.TweepError) as e:
             error_handling(e)
     print(total_followed)
@@ -239,10 +238,9 @@ def unfollow_all(followers, following, total_followed, whitelisted_users, blackl
         if total_followed % 10 == 0:
             print(str(total_followed) + ' unfollowed so far.')
         # print sleeping, sleep.
-        print('Unfollowed user. Sleeping')
-        print(random.randint(15, 20))
-        print('seconds')
-        sleep(random.randint(15, 20))
+        number = random.randint(15, 20)
+        print('Unfollowed user. Sleeping', number, 'seconds')
+        sleep(number)
     print(total_followed)
 
 
@@ -264,10 +262,9 @@ def fav_off_keyword(followers, following, total_followed, whitelisted_users, bla
                 total_followed += 1
                 if total_followed % 10 == 0:
                     print(str(total_followed) + ' tweets liked so far.')
-                print('Liked tweet. Sleeping')
-                print(random.randint(12, 15))
-                print('seconds')
-                sleep(random.randint(12, 15))
+                number = random.randint(12, 15)
+                print('Liked tweet. Sleeping', number, 'seconds')
+                sleep(number)
             except (tweepy.RateLimitError, tweepy.TweepError) as e:
                 error_handling(e)
     print(total_followed)
@@ -284,10 +281,9 @@ def unfavorite_all(followers, following, total_followed, whitelisted_users, blac
             total_unliked += 1
             if total_unliked % 10 == 0:
                 print(str(total_unliked) + ' tweets unliked so far.')
-            print('Unliked tweet. Sleeping')
-            print(random.randint(8, 12))
-            print('seconds.')
-            sleep(random.randint(8, 12))
+            number = random.randint(8, 12)
+            print('Unliked tweet. Sleeping', number, 'seconds')
+            sleep(number)
         except (tweepy.RateLimitError, tweepy.TweepError) as e:
             error_handling(e)
 
