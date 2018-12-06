@@ -107,9 +107,7 @@ def follow_back(followers, following, total_followed, whitelisted_users, blackli
             total_followed += 1
             if total_followed % 10 == 0:
                 print(str(total_followed) + ' users followed so far.')
-            print('Followed user. Sleeping')
-            print(random.randint(10, 15))
-            print('seconds')
+            print('Followed user. Sleeping', random.randint(10, 15), 'seconds')
             sleep(random.randint(10, 15))
         except (tweepy.RateLimitError, tweepy.TweepError) as e:
             error_handling(e)
