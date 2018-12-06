@@ -2,6 +2,7 @@
 
 import tweepy
 import json
+import random
 from time import sleep
 from re import search
 from itertools import cycle
@@ -107,7 +108,7 @@ def follow_back(followers, following, total_followed, whitelisted_users, blackli
             if total_followed % 10 == 0:
                 print(str(total_followed) + ' users followed so far.')
             print('Followed user. Sleeping 10 seconds.')
-            sleep(10)
+            sleep(random.randint(10, 15))
         except (tweepy.RateLimitError, tweepy.TweepError) as e:
             error_handling(e)
     print(total_followed)
@@ -132,7 +133,7 @@ def follow_all(followers, following, total_followed, whitelisted_users, blacklis
             if total_followed % 10 == 0:
                 print(str(total_followed) + ' users followed so far.')
             print('Followed user. Sleeping 10 seconds.')
-            sleep(10)
+            sleep(random.randint(10, 15))
         except (tweepy.RateLimitError, tweepy.TweepError) as e:
             error_handling(e)
     print(total_followed)
@@ -159,11 +160,10 @@ def follow_keyword(followers, following, total_followed, whitelisted_users, blac
                 if total_followed % 10 == 0:
                     print(str(total_followed) + ' users followed so far.')
                 print('Followed user. Sleeping 10 seconds.')
-                sleep(10)
+                sleep(random.randint(10, 15))
             except (tweepy.RateLimitError, tweepy.TweepError) as e:
                 error_handling(e)
     print(total_followed)
-
 
 
 # function to follow users who retweeted a tweet.
@@ -194,11 +194,10 @@ def follow_rters(followers, following, total_followed, whitelisted_users, blackl
                 print(str(total_followed) + ' users followed so far.')
             # sleeps so it doesn't follow too quickly.
             print('Followed user. Sleeping 10 seconds.')
-            sleep(10)
+            sleep(random.randint(10, 15))
         except (tweepy.RateLimitError, tweepy.TweepError) as e:
             error_handling(e)
     print(total_followed)
-
 
 
 # function to unfollow users that don't follow you back.
@@ -214,11 +213,10 @@ def unfollow_back(followers, following, total_followed, whitelisted_users, black
             if total_followed % 10 == 0:
                 print(str(total_followed) + ' unfollowed so far.')
             print('Unfollowed user. Sleeping 15 seconds.')
-            sleep(15)
+            sleep(random.randint(15, 20))
         except (tweepy.RateLimitError, tweepy.TweepError) as e:
             error_handling(e)
     print(total_followed)
-
 
 
 # function to unfollow all users.
@@ -236,13 +234,12 @@ def unfollow_all(followers, following, total_followed, whitelisted_users, blackl
             print(str(total_followed) + ' unfollowed so far.')
         # print sleeping, sleep.
         print('Unfollowed user. Sleeping 15 seconds.')
-        sleep(15)
+        sleep(random.randint(15, 20))
     print(total_followed)
 
 
 # Function to favorite tweets based on keywords
 def fav_off_keyword(followers, following, total_followed, whitelisted_users, blacklisted_users):
-
     for i in config_data["keywords"]:
         # gets search result
         search_results = api.search(
@@ -260,10 +257,11 @@ def fav_off_keyword(followers, following, total_followed, whitelisted_users, bla
                 if total_followed % 10 == 0:
                     print(str(total_followed) + ' tweets liked so far.')
                 print('Liked tweet. Sleeping 12 seconds.')
-                sleep(12)
+                sleep(random.randint(12, 15))
             except (tweepy.RateLimitError, tweepy.TweepError) as e:
                 error_handling(e)
     print(total_followed)
+
 
 # unfavorite all favorites
 def unfavorite_all(followers, following, total_followed, whitelisted_users, blacklisted_users):
@@ -277,9 +275,10 @@ def unfavorite_all(followers, following, total_followed, whitelisted_users, blac
             if total_unliked % 10 == 0:
                 print(str(total_unliked) + ' tweets unliked so far.')
             print('Unliked tweet. Sleeping 8 seconds.')
-            sleep(8)
+            sleep(random.randint(8, 12))
         except (tweepy.RateLimitError, tweepy.TweepError) as e:
             error_handling(e)
+
 
 # Send a DM to users that follow you.
 def send_dm(followers, following, total_followed, whitelisted_users, blacklisted_users):
@@ -310,11 +309,10 @@ def get_count(followers, following, total_followed, whitelisted_users, blacklist
     print('This is sometimes inaccurate due to the nature of the API and updates. Be sure to double check. ')
 
 
-
 # function to handle errors
 def error_handling(e):
     error = type(e)
-    print(e)
+    print(error)
     if error == tweepy.RateLimitError:
         print("You've hit a limit! Sleeping for 30 minutes.")
         sleep(60 * 30)
@@ -327,7 +325,7 @@ def error_handling(e):
 def Continue():
     # asks the user if they want to keep calculating, converts to lower case
     keep_going = raw_input('Do you want to keep going? Enter yes or no. \n'
-                       '').lower()
+                           '').lower()
     # evaluates user's response.
     if keep_going == 'yes':
         main_menu()
